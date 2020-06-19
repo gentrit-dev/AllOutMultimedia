@@ -1,0 +1,124 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+
+<div class="text-center">
+    <canvas id="Mycanvas" width="480" height="480"
+            data-responsiveMinWidth="180"
+            data-responsiveScaleHeight="true"
+            data-responsiveMargin="50">
+        Canvas not supported
+    </canvas>
+    <div class="row text-center">
+        <!-- <button id="bigButton" class="bigButton btn btn-success" onclick="this.disabled = true; resetButton.disabled = true; theWheel.startAnimation();  ">Spin the Wheel</button>
+             <button href="javascript:void(0);"class="resetButton btn btn-warning" onclick="theWheel.stopAnimation(false); theWheel.rotationAngle=0; theWheel.draw(); drawTriangle(); bigButton.disabled=false;">Reset</button>
+         -->
+        <button id="bigButton" class="bigButton btn btn-success" onclick="startSpin()">Spin the Wheel</button>
+        <button class="resetButton btn btn-warning" onclick="resetSpin()">Reset</button>
+    </div>
+</div>
+<script>
+
+    let theWheel = new Winwheel({
+        'canvasId': 'Mycanvas',
+        'textOrientation': 'curved',
+        'textAligment': 'inner',
+        'textMargin': 75,
+        'textFontFamily':'Courier',
+        'textFontSize': 24,
+        'numSegments': 6,
+        'outerRadius': 220,
+        'segments':
+            [
+                {'fillStyle': '#89f26e', 'textFillStyle': 'rgba(0, 230, 4, 1)', 'text': 'Common' },
+                {'fillStyle': '#eae56f', 'textFillStyle': 'rgba(0, 99, 230, 1)', 'textStrokeStyle': 'rgba(0, 230, 218, 1)', 'text': 'Rare' },
+                {'fillStyle': '#89f26e', 'textFillStyle': 'rgba(0, 230, 4, 1)', 'text': 'Common' },
+                {'fillStyle': '#eae56f', 'textFillStyle': 'rgba(0, 99, 230, 1)', 'textStrokeStyle': 'rgba(0, 230, 218, 1)', 'text': 'Rare' },
+                {'fillStyle': '#89f26e', 'textFillStyle': 'rgba(0, 230, 4, 1)', 'text': 'Common' },
+                {'fillStyle': '#e7706f', 'textFillStyle': 'hsla(47, 100%, 45%, 1)', 'textStrokeStyle': 'hsla(57, 100%, 50%, 1)', 'text': 'Special' }
+            ],
+        'animation':
+        {
+            'type': 'spinToStop',
+            'duration': 5,
+            'spins': 8,
+
+            // Remember to do something after the animation has finished specify callback function.
+            'callbackFinished': 'alertPrize()',
+
+            // During the animation need to call the drawTriangle() to re-draw the pointer each frame.
+            'callbackAfter': 'drawTriangle()'
+        }
+    });
+    function startSpin() {
+        var start = document.getElementsByClassName("bigButton");
+        var reset = document.getElementsByClassName("resetButton");
+        start[0].disabled = true;
+        reset[0].disabled = true;
+        let stopAt;
+        var x = Math.round(Math.random() * 100);
+        if (x >= 0 && x <= 60) {
+            var ch = Math.round(Math.random() * 2);
+
+            if (ch == 0) {
+                stopAt = Math.round(Math.random() * 60);
+            } else if (ch == 1) {
+                stopAt = Math.round(Math.random() * 179) + 121;
+            } else {
+                stopAt = Math.round(Math.random() * 299) + 241;
+            }
+
+        } else if (x >= 61 && x <= 90) {
+            var ch2 = Math.round(Math.random());
+
+            if (ch2 == 0) {
+                stopAt = Math.round(Math.random() * 119) + 61;
+            } else {
+                stopAt = Math.round(Math.random() * 239) + 181;
+            }
+        } else {
+            stopAt = Math.round(Math.random() * 359) + 301;
+        }
+
+        theWheel.animation.stopAngle = stopAt;
+        theWheel.startAnimation();
+    }
+    function resetSpin() {
+        theWheel.stopAnimation(false);
+        theWheel.rotationAngle = 0;
+        theWheel.draw();
+        drawTriangle();
+        var start1 = document.getElementsByClassName("bigButton");
+        start1[0].disabled = false;
+    }
+    // This function called after the spin animation has stopped.
+    function alertPrize() {
+        // Call getIndicatedSegment() function to return pointer to the segment pointed to on wheel.
+        let winningSegment = theWheel.getIndicatedSegment();
+
+        // Basic alert of the segment text which is the prize name.
+        alert("Congratulations You have won " + winningSegment.text + "!");
+        var reset1=document.getElementsByClassName("resetButton");
+        reset1[0].disabled = false;
+    }
+
+    // Function to draw pointer using code (like in a previous tutorial).
+    drawTriangle();
+
+    function drawTriangle() {
+        // Get the canvas context the wheel uses.
+        let ctx = theWheel.ctx;
+
+        ctx.strokeStyle = 'navy';     // Set line colour.
+        ctx.fillStyle = 'aqua';     // Set fill colour.
+        ctx.lineWidth = 2;
+        ctx.beginPath();              // Begin path.
+        ctx.moveTo(210, 5);           // Move to initial position.
+        ctx.lineTo(270, 5);           // Draw lines to make the shape.
+        ctx.lineTo(240, 40);
+        ctx.lineTo(211, 5);
+        ctx.stroke();                 // Complete the path by stroking (draw lines).
+        ctx.fill();                   // Then fill.
+    }
+
+</script>
