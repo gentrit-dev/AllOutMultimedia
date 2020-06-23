@@ -10,9 +10,7 @@
         Canvas not supported
     </canvas>
     <div class="row text-center">
-        <!-- <button id="bigButton" class="bigButton btn btn-success" onclick="this.disabled = true; resetButton.disabled = true; theWheel.startAnimation();  ">Spin the Wheel</button>
-             <button href="javascript:void(0);"class="resetButton btn btn-warning" onclick="theWheel.stopAnimation(false); theWheel.rotationAngle=0; theWheel.draw(); drawTriangle(); bigButton.disabled=false;">Reset</button>
-         -->
+        
         <button id="bigButton" class="bigButton btn btn-success" onclick="startSpin()">Spin the Wheel</button>
         <button class="resetButton btn btn-warning" onclick="resetSpin()">Reset</button>
     </div>
@@ -43,13 +41,28 @@
             'duration': 5,
             'spins': 8,
 
-            // Remember to do something after the animation has finished specify callback function.
+            'callbackSound': 'playSound()',
+
             'callbackFinished': 'alertPrize()',
 
             // During the animation need to call the drawTriangle() to re-draw the pointer each frame.
             'callbackAfter': 'drawTriangle()'
         }
     });
+    let audio = new Audio('https://localhost:44336/Sounds/Tick.mp3');  
+    let audioWin = new Audio('https://localhost:44336/Sounds/Win.mp3');
+    function playSound() {
+        audio.pause();
+        audio.currentTime = 0;
+
+        audio.play();
+    }
+    function playSoundWin() {
+        audioWin.pause();
+        audioWin.currentTime = 0;
+
+        audioWin.play();
+    }
     function startSpin() {
         var start = document.getElementsByClassName("bigButton");
         var reset = document.getElementsByClassName("resetButton");
@@ -95,7 +108,7 @@
     function alertPrize() {
         // Call getIndicatedSegment() function to return pointer to the segment pointed to on wheel.
         let winningSegment = theWheel.getIndicatedSegment();
-
+        playSoundWin();
         // Basic alert of the segment text which is the prize name.
         alert("Congratulations You have won " + winningSegment.text + "!");
         var reset1=document.getElementsByClassName("resetButton");
