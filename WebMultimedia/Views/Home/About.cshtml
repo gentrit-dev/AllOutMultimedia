@@ -1,7 +1,36 @@
-﻿<section>
-    <img src="~/images/ScrollAboutUs/bg.jpg" />
-    <img src="~/images/ScrollAboutUs/moon.png" />
-    <img src="~/images/ScrollAboutUs/mountain.png" />
-    <img src="~/images/ScrollAboutUs/road.png" />
-    <h2 id="text">WebMultimedia</h2>
+﻿@{ 
+    Layout = "_Layout1";
+}
+<section>
+    <img src="~/images/ScrollAboutUs/bg.jpg" id="bg"/>
+    <img src="~/images/ScrollAboutUs/moon.png" id="moon"/>
+    <img src="~/images/ScrollAboutUs/mountain.png" id="mountain"/>
+    <img src="~/images/ScrollAboutUs/road.png" id="road"/>
+    <h2 id="text">WebM</h2>
 </section>
+<div class="text-center">
+    <h1>WebM</h1>
+    <div>
+       introduction text 
+    </div>
+    <video>Video</video>
+</div>
+<script type="text/javascript">
+
+    let bg = document.getElementById("bg");
+    let moon = document.getElementById("moon");
+    let mountain = document.getElementById("mountain");
+    let road = document.getElementById("road");
+    let text = document.getElementById("text");
+
+    window.addEventListener('scroll', function () {
+
+        var value = window.scrollY;
+
+        bg.style.top = value / 2 + 'px';
+        moon.style.left = -value / 2 + 'px';
+        mountain.style.top = -value * 15 / 100 + 'px';
+        road.style.top = value * 15 / 100 + 'px';
+        text.style.top = value * 1 + 'px';
+    })
+</script>
