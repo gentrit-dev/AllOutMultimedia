@@ -2,11 +2,17 @@
 
 <html>
 <head>
+
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="~/lib/Layout1/Layout.css" />
 
     <link rel="stylesheet" href="~/lib/Layout1/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/lib/Parallax/Style/style.css" />
+
+    <script src="~/lib/javascript-winwheel-2.8.0/Winwheel.js"></script>
+    <script src="~/lib/Gsap-3.3.2/gsap.js"></script>
+
     <title>@ViewBag.Title</title>
 </head>
 <body>
@@ -23,10 +29,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="StartPage">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Wheel">WinWheel</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">AboutUs</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Rain">Rain</a></li>
+
 
                 </ul>
                 <partial name="_LoginPartial" />
@@ -35,10 +43,26 @@
     </nav>
     <div>
         @RenderBody()
+        <hr style="margin:20px;"/>
+        <footer style="margin:30px;">
+            <p>&copy; 2020 - WebM</p>
+        </footer>
     </div>
 
-    <script src="~/lib/jquery/dist/jquery.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
+        </script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

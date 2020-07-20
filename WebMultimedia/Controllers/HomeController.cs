@@ -10,11 +10,15 @@ namespace WebMultimedia.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult StartPage()
         {
             return View();
         }
         public IActionResult About()
+        {
+            return View();
+        }
+        public IActionResult Rain()
         {
             return View();
         }

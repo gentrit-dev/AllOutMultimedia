@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "_Layout1";
+}
+<div class="container1">
+    <ul id="scene">
+        <li class="layer img-responsive" data-depth=".1">
+            <img src="~/images/Start/text.png" />
+        </li>
+        <li class="layer img-responsive" data-depth="1">
+            <img src="~/images/Start/planet1.png" />
+        </li>
+        <li class="layer img-responsive" data-depth="-1">
+            <img src="~/images/Start/planet2.png" />
+        </li>
+        <li class="layer img-responsive" data-depth="2">
+            <img src="~/images/Start/astronaut.png" />
+        </li>
+        <li class="layer img-responsive" data-depth="0.5">
+            <img src="~/images/Start/rocket.png" />
+        </li>
+    </ul>
+</div>
+<script src="~/lib/Parallax/parallax.js"></script>
+<script>
+    var scene = document.getElementById('scene');
+    var parallax = new Parallax(scene);
+</script>
+

@@ -10,6 +10,7 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/lib/Parallax/Style/style.css"/>
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -33,10 +34,11 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="StartPage">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Wheel">WinWheel</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">AboutUs</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Rain">Rain</a></li>
 
                 </ul>
                 <partial name="_LoginPartial" />
