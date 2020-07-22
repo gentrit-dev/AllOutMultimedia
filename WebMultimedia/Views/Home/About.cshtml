@@ -1,19 +1,46 @@
 ﻿@{ 
     Layout = "_Layout1";
 }
-<section>
-    <img src="~/images/ScrollAboutUs/bg.jpg" id="bg"/>
-    <img src="~/images/ScrollAboutUs/moon.png" id="moon"/>
-    <img src="~/images/ScrollAboutUs/mountain.png" id="mountain"/>
-    <img src="~/images/ScrollAboutUs/road.png" id="road"/>
-    <h2 id="text">WebM</h2>
-</section>
-<div class="text-center">
-    <h1>WebM</h1>
-    <div>
-       introduction text 
+<div id="cont">
+    <section>
+        <img src="~/images/ScrollAboutUs/bg.jpg" id="bg"/>
+        <img src="~/images/ScrollAboutUs/moon.png" id="moon"/>
+        <img src="~/images/ScrollAboutUs/mountain.png" id="mountain"/>
+        <img src="~/images/ScrollAboutUs/road.png" id="road"/>
+        <h2 id="text">WebM</h2>
+    </section>
+    <div class="text-center">
+        <h1>WebM</h1>
+        <div>
+           Just take a moment to relax and enjoy nature!
+        </div>
+        <video id="vid" width="500" height="280" poster="~/images/ScrollAboutUs/thumbnail.PNG" controls>
+            <source src="~/Video/NatureNight.mp4" type="video/mp4">
+            Video not supported on your browser!
+        </video>
+        <h2 style="margin-top:30px;">About Us</h2>
+        <div>
+            We are a new Project founded on the principle of relaxing with amaizing views and wonderfull sounds!<br />
+            We provide alse a good ammount of entertainment by playing games such as the fortune wheel.<br />
+            Our base is in Kosovo ,we've startet this Project in March 2020.<br />
+        </div>
+    
+        <button style="margin-top:30px;" class="btn btn-primary" onclick="toggle()">Learn More</button>
     </div>
-    <video>Video</video>
+</div>
+<div id="popup" class="text-center">
+    <img  height="120" id="img" src="~/images/ScrollAboutUs/KongFu.gif" />
+    <h2>WebM</h2>
+    <div>
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        It has survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with the release
+        of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
+        publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </div>
+    <button class="btn btn-primary" onclick="toggle()">Close</button>
 </div>
 <script type="text/javascript">
 
@@ -32,5 +59,16 @@
         mountain.style.top = -value * 15 / 100 + 'px';
         road.style.top = value * 15 / 100 + 'px';
         text.style.top = value * 1 + 'px';
-    })
+    });
+
+    function toggle() {
+        var blur = document.getElementById("cont");
+        blur.classList.toggle('blur');
+
+        var blurnav = document.getElementById("nv");
+        blurnav.classList.toggle('blur');
+        var activePop = document.getElementById("popup");
+        activePop.classList.toggle('active');
+
+    }
 </script>

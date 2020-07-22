@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 
-<html>
+<html style="background:#337ab7ff;">
 <head>
 
     <meta name="viewport" content="width=device-width" />
@@ -16,7 +16,7 @@
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav id="nv" class="navbar navbar-inverse navbar-fixed-top ">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -25,7 +25,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">WebM</a>
+                <a asp-area="" asp-controller="Home" asp-action="StartPage" class="navbar-brand">WebM</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -41,7 +41,7 @@
             </div>
         </div>
     </nav>
-    <div>
+    <div style="margin-top:-48px;">
         @RenderBody()
         <hr style="margin:20px;"/>
         <footer style="margin:30px;">
@@ -51,6 +51,7 @@
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
     <environment exclude="Development">
