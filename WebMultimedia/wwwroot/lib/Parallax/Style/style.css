@@ -4,10 +4,17 @@
 	overflow: hidden;
 	background: url(/images/Start/background.jpg);
 }
+@media (max-width: 900px) {
+	.container1{
+		height: 80vh
+	}
+}
+@media (max-width: 580px) {
+	.container1 {
+		height: 70vh
+	}
+}
 .mixBlnd
 {
 	background-blend-mode: screen;
-}
-back{
-	background-color:aquamarine
 }

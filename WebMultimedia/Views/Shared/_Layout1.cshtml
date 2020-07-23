@@ -5,7 +5,7 @@
 
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" type="text/css" href="~/lib/Layout1/Layout.css" />
-
+    <link rel="stylesheet" type="text/css" href="~/lib/Layout1/Rain.css" />
     <link rel="stylesheet" href="~/lib/Layout1/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/lib/Parallax/Style/style.css" />
@@ -43,10 +43,12 @@
     </nav>
     <div style="margin-top:-48px;">
         @RenderBody()
-        <hr style="margin:20px;"/>
-        <footer style="margin:30px;">
-            <p>&copy; 2020 - WebM</p>
-        </footer>
+        <div id="ft">
+            <hr style="margin:20px;" />
+            <footer style="margin:30px;">
+                <p>&copy; 2020 - WebM</p>
+            </footer>
+        </div>
     </div>
 
     <environment include="Development">

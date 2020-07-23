@@ -1,8 +1,13 @@
 ﻿@{
     Layout = "_Layout1";
 }
-<section id="srx"></section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.css" />
+<link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting-cells.css" />
+<script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+
+<section id="srx"></section>
+<div id="Split" class="text-center" data-splitting>Relax</div>
 
 <script>
     let scene, camera, renderer, cloudParticles = [], flash, rain, rainGeo, rainCount = 15000;
@@ -50,7 +55,7 @@
         });
         rain = new THREE.Points(rainGeo, rainMaterial);
         scene.add(rain);
-        
+
         let loader = new THREE.TextureLoader();
         loader.load("/images/Rain/smoke-1.png", function (texture) {
             cloudGeo = new THREE.PlaneBufferGeometry(500, 500);
@@ -114,5 +119,5 @@
         rainsound.loop = true;
         rainsound.play();
     }
-    
+    Splitting();
 </script>

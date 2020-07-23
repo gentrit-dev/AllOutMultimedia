@@ -82,6 +82,8 @@ section {
 }
 .blur {
     filter: blur(10px);
+    pointer-events:none;
+    user-select:none;
 }
 #img {
     position: fixed;

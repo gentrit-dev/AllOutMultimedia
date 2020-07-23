@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<script src="https://kit.fontawesome.com/ced37cd46d.js" crossorigin="anonymous"></script>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
     <ol class="carousel-indicators">
@@ -10,19 +11,32 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img src="~/images/banner1.svg" alt="" class="img-responsive" />
-        </div>
-        <div class="item">
-            <img src="~/images/banner2.svg" alt="" class="img-responsive" />
-        </div>
-        <div class="item">
-            <img src="~/images/banner3.svg" alt="" class="img-responsive" />
+            <img src="~/images/Contact/Sea.jpg" alt="" class="img-responsive imgC" />
             <div class="carousel-caption" role="option">
-                <p>
-                    Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                        Learn More
+                <p class="text-center" style="font-size: 48px">
+                    The Beach arguably the best place in the word!
+                     <a class="btn btn-primary" style="font-size:28px" asp-controller="Home" asp-action="Wheel">
+                        Go test you luck under the sun!<i style="color:coral;" class="fas fa-trophy"></i>
                     </a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/Contact/bluesea.jpg" alt="" class="img-responsive " />
+            <div class="carousel-caption" role="option">
+                <p class="text-center" style="font-size:48px">
+                    <a style="color:coral" class="fas fa-umbrella-beach"></a>
+                    <a style="color:coral" class="fas fa-volleyball-ball"></a>
+                    <a style="color:coral" class="fas fa-fish"></a>
+                    <a style="color:coral" class="fas fa-sun"></a>
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <img src="~/images/Contact/mareBack.jpg" alt="" class="img-responsive " />
+            <div class="carousel-caption" role="option">
+                <p style="font-size: 48px">
+                    By scrolling down you'll see our email and our location if you want to contact us!
                 </p>
             </div>
         </div>

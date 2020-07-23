@@ -25,6 +25,7 @@
         'textFontFamily':'Courier',
         'textFontSize': 24,
         'numSegments': 6,
+        'responsive': true,
         'outerRadius': 220,
         'segments':
             [
@@ -133,7 +134,11 @@
         ctx.stroke();                 // Complete the path by stroking (draw lines).
         ctx.fill();                   // Then fill.
     }
+    window.addEventListener('resize', (event) => {
+        drawTriangle();
+        document.body.style.backgroundSize = "100% 100%";
 
+    });
 
     document.body.style.background = "url('/images/WinWheel/beach.jpg') no-repeat";
     document.body.style.backgroundSize = "cover";
